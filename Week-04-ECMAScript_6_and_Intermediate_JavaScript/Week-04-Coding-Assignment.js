@@ -189,11 +189,11 @@
     // if have no money but time yes at home 
 
  let watchAMovie = (haveMoney, haveTime) => {
-    if(haveMoney > 20 && haveTime == true){
+    if(haveMoney > 20 && haveTime == true){ //if both can go to theater
         return `I can go to the movie theater!`;
-    }else if(haveTime == true){
+    }else if(haveTime == true){ //if nomoney can watch at home
         return `I can watch a movie, but at home`;
-    }else{
+    }else{  //no time can't watch one 
         return `I have no time for that`;
     }
  }
