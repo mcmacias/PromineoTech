@@ -99,6 +99,7 @@
  let fullName = (firstName, lastName) => `${firstName} ${lastName}`;
 
  console.log(`First Name, Last Name: ${fullName("ChangBin", "Seo")}`);
+ //  fullName("ChangBin", "Seo"); originlly had console.log as return, but changed it to add to template literal 
 
  console.log(`Question 9---------------------------------------`);
     // Write a function that takes an array of numbers and returns true if the sum of all 
@@ -166,7 +167,7 @@
 
  console.log(`If it is hot ouside and I have more than $10.50 I will buy drink.`);
  let yesHot = true;
- //  let noHot = false;  I relized I can use yesHot to get a noHot answer
+ //  let noHot = false;  I relized I can use !yesHot to get a noHot answer
  let yesMoney = 11.00;
  let noMoney = 9.00;
 
