@@ -302,3 +302,20 @@ Question 9: whichArrayIsLonger  \n`);
 //console.log(whichArrayIsLonger([1, 2, 3, 4, 5], [1, 2, 3, 4]));    //should return [1, 2, 3, 4, 5]
 //console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4, 5, 6])); ///should return [1, 2, 3, 4, 5, 6]
 console.log(whichArrayIsLonger([1, 2, 3, 4], [1, 2, 3, 4]));       //should return false (because they are the same length)
+
+console.log(`OBJECT EXAMPLES------------------------`);
+
+let contactOne = {
+       firstName:"Mickey",
+       lastName: "Mouse",
+       address: {				//Object inside an object
+              street: "1 Main Street",
+              city: "Disneyland",
+              state: "CA",
+              zip: "92802"
+       },
+       phone: "123-456-7890",
+       notes: "Hot Dog"
+};
+       
+console.log(`${contactOne.firstName} ${contactOne.lastName} lives in state ${contactOne.address.state}!`);
