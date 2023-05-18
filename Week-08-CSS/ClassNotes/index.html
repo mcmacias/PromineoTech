@@ -1,0 +1,52 @@
+
+<!-- this is all inline code. great but not best idea becuase if you want to change the style
+of a group of things, you have to go through each line to change
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:rgb(0, 119, 255);"> can also use hex colors or rgb
+    <h1 style="color: brown;">Styled Heading </h1>
+
+    <div style="background-color: aqua; border-style: solid;border-color: black; border-radius: 5px;">
+        <p style="text-shadow: gray 1px 1px;">this is a styled paragraph</p>
+
+        <p style="font-size: 30px;">styled paragraph 2</p>
+    </div>
+
+
+</body>
+</html>
+
+<!--
+internal css is better to change sections, used with a style tag in head
+can use selectors to show what elements the css will apply to -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- each section has to match the tag name-->
+    <link rel="stylesheet" href="styles.css">
+    <!-- shadow-text is a css class and you can apply it to any css element (Below first P)-->
+    <!-- id selector is similar -->
+</head>
+<body>
+    <h1>Styled Heading</h1>
+
+    <div>
+        <p class="shadow-text">this is a styled paragraph</p>
+
+        <P id="large-paragraph"> styled paragraph 2</P>
+    </div>
+
+
+</body>
+</html>

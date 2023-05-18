@@ -1,0 +1,80 @@
+
+many of the basic properties that are usually used in css
+#example{
+    color: gray;
+    background-color: pink;
+    border-style: dotted;
+    border-width: 3px;
+    border-color: white;
+    border-radius: 5px;
+    height: 200px;
+    text-align: center;
+}
+
+helps us float content to left or right of page for a specific img under img
+img{
+    float: right;
+}
+
+pseudi classes: helps us style an element based on it's current state (like if mouse pointer hovering, 
+a link has been visted, if been selected, etc.) 
+
+in html:
+    <div class="hov"></div>
+
+in css:
+    .hov{
+        height: 200px;
+        width: 200px;
+        backgroud-color: blue;
+    }
+
+    .hov:hover {
+        background-color: red;
+    }
+
+
+    with a list: trying to get every other item 
+
+    .every-even li:nth-child(even){
+        background-color: red;
+
+    }
+
+    .every-third li:nth-child(3n){
+        background-color: black;
+    }
+
+
+    styling a table 
+    comma in between means going to apply to both table heading & table data
+
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid black;
+    }
+
+    tr:nth-child(even){
+        background-color: rgb(185, 185, 185);
+
+    }
+
+    tr:hover{
+        background-color: gray;
+    }
+
+
+    #box-model{
+        padding: 20px;
+        border-style: solid;
+        border-width: 3px;
+        margin: 30 px;
+        background-color: blue;
+    }
+
