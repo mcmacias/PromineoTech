@@ -1,0 +1,102 @@
+/* all files */
+/* List of things I can adjust all 3 files with:
+    header 
+    <h1> - title
+    <img> 
+    <p>
+    */
+
+h1{
+    font-family: cursive;
+    color: rgb(18, 83, 18);
+}
+h2, th{
+    font-size: x-large;
+}
+p, li, td{
+    font-size: larger;
+}
+/* #center-text{
+    text-align: center;
+} */
+
+/* HOME PAGE */
+
+.home-body{
+    background-color: rgb(252, 252, 158);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.tbr-read{
+    margin: 3rem;
+    padding: 1rem 2rem;
+    background-color: rgb(194, 72, 72);
+    border-radius: 1rem;
+}
+.h-img{
+    margin-left: 9rem;
+    margin-right: 9rem;
+    display: flex;
+    justify-content: space-around;
+}
+#home-banner{
+    width: 700px;
+    height: auto;
+}
+#home-img{
+    height: 250px;
+    width: auto;
+}
+
+/* TBR page */
+.tbr-body{
+    background-color: rgba(185, 189, 252, 0.945);
+}
+.TBR {
+    text-align: center;
+}
+.tbr-list{
+    padding-left: 5rem;
+    padding-right: 5rem;
+    display:flex;
+    justify-content: space-around;
+}
+li:hover{
+    background-color: rgb(120, 129, 255);
+}
+.bottom{
+    background-color: rgb(194, 72, 72);
+    text-align: center;
+}
+#tbr-img{
+    margin-top: 4rem;
+    margin-left: 1rem;
+    height: 150px;
+    width: 300px;
+}
+
+/* Read page */
+.readTop{
+    text-align: center;
+}
+.readTable{
+    background-color:lightcoral;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 5rem;
+}
+#center-table{
+    text-align: center;
+}
+tr:nth-child(even){
+    background-color: rgb(194, 72, 72);
+}
+tr:hover{
+    background-color: rgba(194, 72, 72, 0.603);
+}
+td{
+    padding: 1rem;
+}
