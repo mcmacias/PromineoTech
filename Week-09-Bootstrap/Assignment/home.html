@@ -1,0 +1,128 @@
+<!-- k-pop groups/fandoms -->
+
+<!-- welcome
+
+this site will help intorduce you to some kpop groups
+each group info will contain the following:
+    name (pic of gorup)
+    year debuted
+    list of members (card with pic & name on bottom)
+    list of albums (by year) - # of versions available 
+please choose from the list below ()
+
+link each group wi their pages  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <header><!-- this will become a taskbar at the top of the page-->
+        <nav class="navbar bg-body-tertiary bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand mb-0 h1" href="home.html">Home Page</a>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Groups
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="bts.html">BTS</a></li>
+                    <li><a class="dropdown-item" href="skz.html">Stray Kids</a></li>
+                    <li><a class="dropdown-item" href="lsf.html">Le Serrafim</a></li>
+                    <li><a class="dropdown-item" href="mmm.html">MAMAMOO</a></li>
+                </ul>
+              </div> 
+            </div>
+        </nav>
+    </header>
+    
+    <main class="bg-secondary">
+        <div class="container text-center mb-5">
+            <h1>K-Pop Groups</h1>
+            <h3>There has been a rise of popularity in K-pop music in the united States in the last few years. Around 2017
+                with BTS and Blackpink entering mainstream music in the US, K-pop is heard more often and started to get more attention, 
+                leading other groups to rise in popularity as well. This has lead to high interest in many groups. I have listed 
+                a few popular ones below for you to find more information on.
+            </h3>
+        </div>
+
+        <div class="container text-center fs-2">
+            <div class="row">
+                <div class="row p-1"> <!-- set any images in here to the same size -->
+                    <div class="col-md-6">
+                        <a href="bts.html" title="BTS">
+                            <button type="button" class="btn btn-secondary fs-3">BTS</button>
+                            <img src="Images/bts-group.jpg"
+                                height="400px"
+                            />
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="skz.html" title="Stray Kids">
+                            <button type="button" class="btn btn-secondary fs-3">Stray Kids</button>
+                            <img src="Images/skz-group.jpg"
+                                height="400px"
+                            />
+                        </a>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="col-md-6">
+                        <a href="lsf.html" title="Le Serrafim">
+                            <button type="button" class="btn btn-secondary fs-3">Le Serrafim</button>
+                            <img src="Images/lsf-group.jpg"
+                                height="400px"
+                            />
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="mmm.html" title="MAMAMOO">
+                            <button type="button" class="btn btn-secondary fs-3">MAMAMOO</button>
+                            <img src="Images/mamamoo-group.jpg"
+                                height="400px"
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mb-10 text-center">
+            <h4>Have a favorite group from the above? Let us know below!</h4>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                <option selected>Choose a favorite group!</option>
+                <option value="1">BTS</option>
+                <option value="2">Stray Kids</option>
+                <option value="3">Le Serrafim</option>
+                <option value="4">Mamamoo</option>
+              </select>
+        </div>
+        <br>
+
+    </main>
+
+    <footer class="container text-center mb-5">
+        <h3>Contact Us</h3>
+        <p>Is there a group you'd like to see on our site? Leave us you're info 
+            and we'll get in contact with you!
+        </p>
+        <div>
+            <form>
+                <input type="text" name="first last" placeholder="First & Last Name">
+                <input type="text" name="email" placeholder="Email">
+                <input type="text" name="group" placeholder="Group Name">
+                <input type="submit" value="submit">
+            </form>
+        </div>
+
+    </footer>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
+</html>
