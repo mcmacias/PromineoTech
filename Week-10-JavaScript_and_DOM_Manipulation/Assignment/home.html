@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entries</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body class="container bg-secondary">
+    <div class="card bg-warning">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <!-- Date-->
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="entry-date">Date</label>
+                                <input type="date" class="form-control" id="entry-date">
+                            </div>
+                        </div>
+                        <!-- Highlight of Day (text) -->
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="highlight">Highlight of Day</label>
+                                <input type="text" class="form-control" id="highlight">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Energy Level (look for slider type) -->
+                        <div class="col-sm-6">
+                            <div class="form-label">
+                                <label for="energy-level">Energy Level (0-10)</label>
+                                <input type="range" class="form-range" id="energy-level" min="0" max="10" step="0.5">
+                            </div>
+                        </div>
+                        <!-- Mood (drop down menu) -->
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="mood-entry">Mood</label>
+                                <input list="moodOptions" class="form-control" id="mood-entry" placeholder="Select Mood">
+                                <datalist id="moodOptions">
+                                    <option value="Happy"></option>
+                                    <option value="Sad"></option>
+                                    <option value="Mad"></option>
+                                    <option value="Mellow"></option>
+                                    <option value="Indifferent"></option>
+                                    <option value="Irritated"></option>
+                                </datalist>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="new-entry">Entry</label>
+                            <input type="text" class="form-control" id="new-entry" placeholder="Today">
+                        </div>
+                    </div>
+                    <div>
+                        <button id="add" class="btn btn-warning from-control">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table id="journal-list" class="table table-dark table-striped">
+        <tr>
+            <th>Date</th>
+            <th>Mood</th>
+            <th>Energy Level</th>
+            <th>Highlight</th>
+            <th>Entry</th>
+        </tr>
+    </table>
+
+    <script src="home.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    
+</body>
+</html>
