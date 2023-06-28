@@ -1,0 +1,36 @@
+#board .bi::before {
+    vertical-align: inherit;
+  }
+  .cell i {
+    font-size: 7em;
+  }
+  .cell {
+    width: 10em;
+    height: 10em;
+    color: #000;
+  }
+  .cell.border {
+    border: solid 6px #000!important;
+  }
+  .cell.border-bottom {
+    border-bottom: solid 6px #000!important;
+  }
+  .cell.border-start {
+    border-left: solid 6px #000!important;
+  }
+  .cell.border-end {
+    border-right: solid 6px #000!important;
+  }
+  b1.title {
+    font-size: 5em ;
+    font-style: italic;
+  }
+  p.description {
+    font-size: 3em;
+  }
+  p.announceWinner {
+    font-size: 5em;
+  }
+  .box.board {
+    padding: 5px;
+  }

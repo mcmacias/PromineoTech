@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Board</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="tictactoe.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="row">
+
+        <div class="contianer col-md-4">
+            <b1 class="title">Tic Tac Toe</b1>
+            <p class="description">Enjoy a game of tic tac toe</p>
+            <p id="announceWinner"></p>
+        </div>
+
+        <!-- col-lg-10 px-md-4 -->
+        <div class="box container col-md-8 ms-sm-auto px-md-4"> 
+            <div id="board">
+                <div class="row">
+                    <div id="c1" class="col cell border-bottom"></div>
+                    <div id="c2" class="col cell border-bottom border-start border-end"></div>
+                    <div id="c3" class="col cell border-bottom"></div>
+                </div>
+                <div class="row">
+                    <div id="c4" class="col cell border-bottom"></div>
+                    <div id="c5" class="col cell border-bottom border-start border-end"></div>
+                    <div id="c6" class="col cell border-bottom"></div>
+                </div>
+                <div class="row">
+                    <div id="c7" class="col cell"></div>
+                    <div id="c8" class="col cell border-start border-end"></div>
+                    <div id="c9" class="col cell"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="node_modules/@popperjs/core/dist/umd/popper.js"></script>
+    <script src="tictactoe.js"></script>
+</body>
+</html>
