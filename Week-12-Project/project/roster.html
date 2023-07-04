@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="roster.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h4>Add a new student</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName"><br>
+                    <label for="grade">Grade</label>
+                    <input type="number" id="grade">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob"><br>
+                    <input type="submit" id="subBtn">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h4>Update Student Info</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId">
+                    <label for="updateFirst">First Name</label>
+                    <input type="text" id="updateFirst">
+                    <label for="updateLast">Last Name</label>
+                    <input type="text" id="updateLast"><br>
+                    <label for="updateGrade">Grade</label>
+                    <input type="number" id="updateGrade">
+                    <label for="updateDob">Date of Birth</label>
+                    <input type="date" id="updateDob"><br>
+                    <input type="submit" id="updateBtn">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <table id="roster">
+            <thead>
+                <th>Student ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Grade</th>
+                <th>Date of Birth</th>
+                <th>Delete Student</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="roster.js"></script>
+
+</body>
+</html>
