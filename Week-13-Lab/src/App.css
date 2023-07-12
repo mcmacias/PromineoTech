@@ -1,0 +1,42 @@
+ 
+ .navBar{
+    width: 100vw;
+    background-color: rgb(97, 107, 202);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 1px;
+ }
+
+ nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+ }
+
+ nav ul li{
+    list-style-type: none;
+    margin-right: 1em;
+ }
+
+ nav ul li:hover{
+    color: rgba(0, 0, 0, 0.545);
+ }
+
+ section{
+    background-color: aquamarine;
+    padding: 1px;
+ }
+
+ section div{
+    text-align: center;
+ }
+
+ section div h1{
+    font-size: xx-large;
+ }
+
+ section div p{
+    font-size: larger;
+    font-weight: bold;
+ }

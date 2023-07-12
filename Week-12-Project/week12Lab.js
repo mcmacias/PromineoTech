@@ -75,7 +75,8 @@ Part 1: Setup your JSON server`)
  * Step 3: Below, create a const declaration for your URL endpoint
  *
  * ↓ YOUR CODE HERE ↓ */
-
+  const url = 'http://localhost:3000/studentRoster';
+  console.log(`URL: ${url}`)
 /*------------------------ Part 2: HTTP Verb: GET ------------------------*/
 console.log(
   `-------------------------- 
@@ -91,6 +92,30 @@ Part 2: GET and displaying the information`
  *         Reminder: While you are not required to, the lab solution uses a <table>
  *
  * ↓ YOUR CODE HERE ↓ */
+
+// $.get(url).then(data => console.log(data));
+// $.get(url).then(data => {
+//   for (info in data){
+//     let name = data[info].fullName;
+//     let project = data[info].researchAssignment;
+//     let line = data[info].id;
+//     console.log(`Student Number: ${line}
+//     Name: ${name} 
+//     Research Animal: $`);
+//   }
+// });
+$.get(url).then(data => {
+  data.map(info =>{
+    $('tbody').append(
+      `<tr>
+        <td>${info.id}</td>
+        <td>${info.fullName}</td>
+        <td>${info.researchAssignment}</td>
+        <td><button onclick="deleteUser(${info.id})">🗑</button></td>
+      </tr>`
+    )
+  })
+})
 
 /*------------------------ Part 3: HTTP Verb: POST ------------------------*/
 console.log(
@@ -116,6 +141,28 @@ Part 3: POST and adding new students`
  *         Your button should now post a new user on click.
  *
  * ↓ YOUR CODE HERE ↓ */
+$('body').prepend(
+  `<h4>Add New Student</h4>
+  <form class="container">
+    <input type="text" id="name">
+    <label for="fullName">Student Full Name</label><br>
+    <input type="text" id="assignment">
+    <label for="researchAssignment">Research Assignment</label><br>
+    <input type="Submit" value="Submit" id="submitBtn">
+  </form>
+  `
+)
+
+$('#submitBtn').click( function(e) {
+  // e.preventDefault(); //helps the button not refresh 
+  // console.log('pls work');
+  //  $.ajax
+  $.post(url, {
+    fullName: $('#name').val(),
+    researchAssignment: $('#assignment').val(),
+  });
+  
+});
 
 /*------------------------ Part 4: HTTP Verb: DELETE ------------------------*/
 console.log(
@@ -150,10 +197,16 @@ Part 4: DELETE and deleting individual students`
  *
  * ↓ YOUR CODE HERE ↓ */
 
+function deleteUser(id){
+  $.ajax(`${url}/${id}`, {
+    type: 'DELETE'
+  })
+}
+
 /*------------------------ HTTP Verb: UPDATE ------------------------*/
 console.log(
   `-------------------------- 
-Part 4: PUT and updating the information`
+Part 5: PUT and updating the information`
 )
 
 /**
@@ -173,6 +226,21 @@ Part 4: PUT and updating the information`
  *         do the updateUser function on click.
  *
  * ↓ YOUR CODE HERE ↓ */
+
+function updateUser(){
+  let id = $('#updateID').val();
+
+  $.ajax(`${url}/${id}`, {
+    method: 'PUT',
+    data: {
+      fullName: $('#updateName').val(),
+      researchAssignment: $('#updateAssignment').val(),
+    }
+  })
+}
+
+//eventListener
+$('#updateBtn').click(updateUser);
 
 console.log(`-----------Finished------------`)
 
