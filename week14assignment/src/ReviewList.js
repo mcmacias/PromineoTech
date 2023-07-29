@@ -7,12 +7,12 @@ import React from "react";
 let togoReviews = [
   {
     reviewerName: "John Smith",
-    review: "Great movie. Would watch again.",
+    review: "togo Review 1",
     starRating: '5',
   },
   {
     reviewerName: "Jane Apple",
-    review: "Too silly for me.",
+    review: "togo Review 2",
     starRating: '2',
   }
 ]
@@ -20,12 +20,12 @@ let togoReviews = [
 let gameReviews = [
   {
     reviewerName: "John Smith",
-    review: "Great movie. Would watch again.",
+    review: "game Review 1",
     starRating: '5',
   },
   {
     reviewerName: "Jane Apple",
-    review: "Too silly for me.",
+    review: "game Review 2",
     starRating: '2',
   }
 ]
@@ -33,12 +33,12 @@ let gameReviews = [
 let dragonReviews = [
   {
     reviewerName: "John Smith",
-    review: "Great movie. Would watch again.",
+    review: "dragon Review 1",
     starRating: '5',
   },
   {
     reviewerName: "Jane Apple",
-    review: "Too silly for me.",
+    review: "dragon Review 2",
     starRating: '2',
   }
 ]

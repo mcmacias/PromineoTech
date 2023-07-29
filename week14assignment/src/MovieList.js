@@ -16,18 +16,26 @@ import React from "react";
 import "./Movie.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReviewForm from "./ReviewForm";
-// import {Container, Card, Col, Button} from "react-bootstrap";
-
-function openReviewForm () {
-  <ReviewForm/>
-}
 
 export default class MovieList extends React.Component{
   constructor(props){
     super(props);
     this.movieArray = props.movies;
     // console.log(this.movieArray);
+    // this.makeReview = this.makeReview.bind(this);
   }
+
+  makeReview = (e) => {
+    // console.log("make review");
+    <ReviewForm/>
+  }
+
+  showReviews = (e) => {
+    // console.log("make review");
+    <Review/>
+  }
+  //tried as a class, maybe try as a function 
+  // https://upmostly.com/tutorials/react-onclick-event-handling-with-examples
 
   render() {
     return (
@@ -42,8 +50,11 @@ export default class MovieList extends React.Component{
             <p className="writer">Writers: {movie.writer}</p>
             <p className="rating">Overall Rating: {movie.rating}</p>
             <footer className="review-section">
-              <button className="formBtn" onClick={openReviewForm()}>
+              <button className="formBtn" onClick={this.makeReview}>
                 Review
+              </button>
+              <button className="reviewsBtn" onClick={this.showReivews}>
+                List of Reviews
               </button>
             </footer>
           </div>

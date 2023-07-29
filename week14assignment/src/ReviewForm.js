@@ -4,9 +4,6 @@
 
 import React from "react";
 
-// function letsGo(){
-//   console.log('this worked');
-// }
 
 export default class ReviewForm extends React.Component{
   // constructor(){
@@ -15,7 +12,21 @@ export default class ReviewForm extends React.Component{
 
   render() {
     return (
-      console.log('hello')
+      <div className="react-box container">
+        <form>
+          <label>Name: <br></br>
+              <input name="reviewerName" />
+          </label>
+          <br></br>
+          <label>5 Star Rating:<br></br>
+              <input name="starRating" />
+          </label>
+          <br></br>
+          <label>Review:<br></br>
+              <textarea name="review"/>
+          </label>
+        </form>
+      </div>
     )
   };
 }
