@@ -1,0 +1,25 @@
+{
+  "ReadBooks": [
+    {
+      "title": "Fourth Wing",
+      "author": "Rebecca Yarros",
+      "rating": "4",
+      "dates": "07/24-07/29",
+      "review": "Good enough"
+    },
+    {
+      "title": "Graceling",
+      "author": "Kristin Cashore",
+      "rating": "3",
+      "dates": "07/29-08/02",
+      "review": "Very slow"
+    },
+    {
+      "title": "The Perfect Marriage",
+      "author": "Alicia Thompson",
+      "rating": "2",
+      "dates": "06/23-06/27",
+      "review": "Didn't enjoy it"
+    }
+  ]
+}
