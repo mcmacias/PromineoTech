@@ -18,7 +18,7 @@
 // Hooks
 // useState
 // useEffect
-// Async/Await
+// Async/Await //
 // JSON.stringify()
 // fetch(URL, options)
 // onClick={(e) => myFunction(e)}
@@ -51,6 +51,8 @@
  *
  *         Create 4 functions, getUsers(){}, deleteUser(){}, updateUser(){}, and postNewUser(){}.
  */
+
+
 
 /*------------------------ Part 1: Setting up GET ------------------------*/
 /*
@@ -181,19 +183,172 @@
  */
 
 /*-- ALL IMPORTS HERE -- */
-import './App.css'
+import { post } from 'jquery';
+import './App.css';
+import {useState, useEffect} from 'react';
 
 function App() {
   /* -- YOUR CODE/CRUD OPERATIONS HERE --*/
 
+const MOCK_API_URL = 'https://64c5aeebc853c26efadaea42.mockapi.io/PT15/user'
+
+const [users, setUsers] = useState([{ //usestate givesusa default value 
+  // name:'Mayra',
+  // jobTitle: 'accounts',
+  // companyName: 'EMT'
+  // if don't set users, then we will get these as a default option
+}]) 
+
+const [newUserName, setNewUserName] = useState('')
+const [newUserJobTitle, setNewUserJobTitle] = useState('')
+const [newUserCompanyName, setNewUserCompanyName] = useState('')
+
+const [updatedName, setUpdatedName] = useState('')
+const [updatedJobTitle, setUpdatedJobTitle] = useState('')
+const [updatedCompanyName, setUpdatedCompanyName] = useState('')
+
+// console.log(users);
+
+function getUsers(){
+  fetch(MOCK_API_URL)
+  //grab data from url an then want tomake it readable so make it ot json
+  .then(data => data.json())
+  //then want to make that readbale data and put it into the setUsers we made before. 
+  // .then(data => console.log(data))
+  .then(data => setUsers(data))
+}
+
+//want to call use effect function only when our component rerenders
+useEffect(() => {
+  //make sure to call the function
+  getUsers()
+  console.log(users)
+}, [])
+
+function deleteUser(id){
+  fetch(`${MOCK_API_URL}/${id}`, {
+    method: 'DELETE'
+  }).then(() => getUsers())
+}
+
+function postNewUser(e) {
+  e.preventDefault()
+
+  // let data = {
+    // name: newUserName,
+    // jobTitle: newUserJobTitle,
+    // companyName: newUserCompanyName
+  // }
+  //  can do this using a new object,or canjust add it to the stringify part
+
+  fetch(`${MOCK_API_URL}`, {
+    method: 'POST', 
+    headers:{'Content-Type': "application/json"},
+    //this tells backend ehat type of data you are adding (in this case app-json)
+    body: JSON.stringify({
+      name: newUserName,
+      jobTitle: newUserJobTitle,
+      companyName: newUserCompanyName,
+    })
+    //gives the information we will be giving them 
+    //we want to stringify, but what are we stringifying? out information
+    //in this case user, jobtitle, & company
+  }).then(() => getUsers())
+}
+
+function updateUser(e, userObject) {
+  e.preventDefault()
+
+  let updatedUserObject = {
+    ...userObject, 
+    name: updatedName,
+    jobTitle: updatedJobTitle,
+    companyName: updatedCompanyName,
+  }
+  fetch(`${MOCK_API_URL}/${userObject.id}`, {
+    method: 'PUT',
+    body: JSON.stringify(updatedUserObject),
+    headers: {'Content-Type': 'application/json'}
+  }).then(() => getUsers())
+}
+
+ //by using setNewUser, this automatically fills in the varibles so when we go to post we already have
+ //the varibale in place and just need to call the function 
   return (
     <div className="App">
       {/* CODE BELOW: PART: 5.3 Connecting our POST */}
+      <form>
+        <h3>Post New User Form</h3>
+        <label>Name</label>
+        <input placeholder='Enter New Name' onChange={(e) => setNewUserName(e.target.value)}></input> <br/>
+        <label>Job Title</label>
+        <input onChange={(e) => setNewUserJobTitle(e.target.value)}></input> <br/>
+        <label>Company Name</label>
+        <input onChange={(e) => setNewUserCompanyName(e.target.value)}></input> <br/>  
+        <button onClick={(e) => postNewUser(e)}>Submit</button>
+        {/*only need e in postNewUser() becuase we want to preventdefault in the function since it is in a form */}
+      </form><br></br>
 
       {/* CODE BELOW: PART 5.1: Connecting our GET  //  PART 5.4: Connecting our UPDATE */}
+      {users.map((user, index) => (
+        <div className='usersContainer' key={index}>
+          <div>
+            <h3>User {user.id}</h3>
+            Name: {user.name} <br></br>
+            Job Title: {user.jobTitle} <br></br>
+            Company Name: {user.companyName} <br></br>
+            <button onClick={() => deleteUser(user.id)}>Delete</button><br></br>
+          </div>
+          <form>
+            <h3>Update This User</h3>
+            <label>Update Name</label>
+            <input onChange={(e) => setUpdatedName(e.target.value)}></input><br></br>
+            <label>Update Job</label>
+            <input onChange={(e) => setUpdatedJobTitle(e.target.value)}></input><br></br>
+            <label>Update Company</label>
+            <input onChange={(e) => setUpdatedCompanyName(e.target.value)}></input><br></br>
+            <button onClick={(e) => updateUser(e, user)}>Update</button><br></br>
+          </form><br></br>
+        </div>
+      ))}
     </div>
   )
 }
+
+/**
+ * Step 1:  Connecting our GET:
+ *          .map over our users variable and display every users name/jobTitle/companyName
+ * Step 2: Connecting our DELETE:
+ *         Under our map, give every user a button to delete. Return of the trash-bin: 🗑
+ *         It's not in a form, so we don't need event.preventDefault()
+ *         use .then(() => getUsers()) after our fetch to re-render the
+ *         page with the updated information.
+ * Step 3: Connecting our POST:
+ *         Create a form above your .map method to post a new user.
+ *         Use the onChange property and setMyVariable() on each corresponding input
+ *         Connect your postNewUser() function to your form button.
+ *         We do need event.preventDefault() because it's inside of a form.
+ *         You should now be POSTing new users! Is your state re-rendering?
+ *         If not, your hint in how is in Part 2: Setting up DELETE
+ * Step 4: Connecting our UPDATE:
+ *     1)  There's MANY ways to handle UPDATE.
+ *         For this example, we're going to give every user a form to update their:
+ *         name, job title, and company name.
+ *     2)   Inside our .map() method, below our delete button,
+ *          create a new form with labels/inputs for
+ *          Update name, update job title, update company name.
+ *          Include a button at the bottom (this will update on click).
+ *     3)   Set up the onChange property on your inputs similiar to Step 3: Connecting our POST
+ *     4)   Give your button an onClick property. Connect your updateUser() function to it.
+ *          For this function, we have two goals:
+ *       1. Prevent the button from refreshing the page
+ *       2. Pass in a an entire user object.
+ *          Set up your onClick to do both.
+ *     5)   Test it out! Your update should now be working!
+ *          Make sure the page is re-rendering with the updated information
+ *          and not refreshing the page.
+ * Optional: Set the input values in your update form to be equal to user.name/user.jobTitle etc,
+ *           so they don't initially submit empty strings.*/
 
 export default App
 

@@ -26,6 +26,7 @@ export default class ReviewForm extends React.Component{
               <textarea name="review"/>
           </label>
         </form>
+        <button>submit</button>
       </div>
     )
   };

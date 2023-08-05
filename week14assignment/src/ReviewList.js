@@ -35,8 +35,7 @@ let dragonReviews = [
     reviewerName: "John Smith",
     review: "dragon Review 1",
     starRating: '5',
-  },
-  {
+  }, {
     reviewerName: "Jane Apple",
     review: "dragon Review 2",
     starRating: '2',
@@ -44,6 +43,7 @@ let dragonReviews = [
 ]
 
 export default class ReviewList extends React.Component{
+  //return the rigt array for movie
   render() {
     return "review list"
   };

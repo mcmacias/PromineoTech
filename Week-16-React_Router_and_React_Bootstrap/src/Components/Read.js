@@ -1,19 +1,21 @@
 //page that will display read book
+import React from 'react';
 import { useState, useEffect } from "react";
-import ReadURL from "./services/ReadURL";
-import Delete from "./Delete";
-
 
 const READ_URL = `https://64c5aeebc853c26efadaea42.mockapi.io/PTF/ReadBooks`;
-const service = new ReadURL(READ_URL);
+// let booksRead = [];
 
 export default function ReadBooks(props){
 
   const [booksRead, setBooks] = useState(([]));
 
   useEffect(() => {
-    service.getBooksRead().then(data => {
+    fetch(READ_URL)
+    .then(data => data.json())
+    .then(data => {
       setBooks(data);
+      // console.log(data);
+      // console.log(booksRead);
     });
   }, []);
 
@@ -35,7 +37,8 @@ export default function ReadBooks(props){
           {booksRead.map((book, index) => (
             <tr key={index}>
               <td>
-                <button onClick={<Delete URL="READ_URL" id="index"/>}>Delete</button>
+                <button>Delete</button>
+                {/* connect delete  */}
                 <button>Make Changes</button>
               </td>
               <td>{book.title}</td>
@@ -50,3 +53,6 @@ export default function ReadBooks(props){
     </>
   );
 }
+
+
+

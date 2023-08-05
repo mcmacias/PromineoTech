@@ -9,7 +9,9 @@ import React from 'react'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
 import Home from './Components/Home.js'
-import About from './Components/About.js'
+import Read from './Components/Read.js'
+import TBR from './Components/TBR.js'
+
 
 /** Instruction:
  *    This is a boiler plate, or a "starting point" for React Router.
@@ -52,7 +54,10 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/read">Read Books</Link>
+            </li>
+            <li>
+              <Link to="/tbr">TBR</Link>
             </li>
           </ul>
         </nav>
@@ -67,8 +72,12 @@ export default function App() {
           </Route>  */}
 
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/tbr">
+            <TBR />
+          </Route>
+
+          <Route path="/read">
+            <Read />
           </Route>
 
           <Route path="/">

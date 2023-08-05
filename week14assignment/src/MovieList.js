@@ -16,23 +16,31 @@ import React from "react";
 import "./Movie.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReviewForm from "./ReviewForm";
+import Review from "./Review";
 
 export default class MovieList extends React.Component{
   constructor(props){
     super(props);
     this.movieArray = props.movies;
+
+    this.state = {
+      showReview: false
+    }
     // console.log(this.movieArray);
     // this.makeReview = this.makeReview.bind(this);
   }
 
-  makeReview = (e) => {
-    // console.log("make review");
-    <ReviewForm/>
+  handleShowReview = () => {
+    this.setState({
+      ...this.state,
+      showReview: !this.state.showReview
+    })
   }
 
   showReviews = (e) => {
-    // console.log("make review");
-    <Review/>
+    console.log("make review");
+    //connect review list 
+    // <Review reviews={review list chosen}/>
   }
   //tried as a class, maybe try as a function 
   // https://upmostly.com/tutorials/react-onclick-event-handling-with-examples
@@ -50,10 +58,20 @@ export default class MovieList extends React.Component{
             <p className="writer">Writers: {movie.writer}</p>
             <p className="rating">Overall Rating: {movie.rating}</p>
             <footer className="review-section">
-              <button className="formBtn" onClick={this.makeReview}>
-                Review
+              <button className="formBtn" onClick={this.handleShowReview}>
+                Show / Hide Review
               </button>
-              <button className="reviewsBtn" onClick={this.showReivews}>
+
+              {
+                !this.state.showReview ? <ReviewForm/> : <></>
+                // if (showReview) {
+                //   <ReviewForm/>
+                // } else if (showReview) {
+                //   <></>
+                // }
+              }
+
+              <button className="reviewsBtn" onClick={this.showReviews}>
                 List of Reviews
               </button>
             </footer>
@@ -66,3 +84,46 @@ export default class MovieList extends React.Component{
 }
 
 //add a card footer for the button to leave a review and see reviews it already has
+
+
+
+
+
+//class based: class MovieList extends React.component {
+//   constructor(props){
+//     super(props)
+//   }
+
+// render(
+//   return(
+//     <>
+//     </>
+//   )
+// )
+// }
+
+/*
+
+  constructor(props){
+    super(props);
+    this.movieArray = props.movies;
+
+    this.state = {
+      showReview: false
+    }
+    // console.log(this.movieArray);
+    // this.makeReview = this.makeReview.bind(this);
+  }
+
+  */
+
+//functional: function MovieList () {
+//
+//   return(
+//     <>
+//     </>
+//   )
+// }
+
+// const [movieArray, setMovieArray] = useState(props.movies);
+// const [showReview, setShowReview] = useState(false)
