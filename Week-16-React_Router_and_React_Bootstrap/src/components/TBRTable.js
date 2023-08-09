@@ -1,30 +1,37 @@
-//Page that will display TBR
-//each book it's own card
-import React from 'react';
 import { useState, useEffect } from "react";
+import UpdateTBR from "./UpdateTBR";
 
 const TBR_URL = `https://64c5aeebc853c26efadaea42.mockapi.io/PTF/TBRBooks`;
-// let booksTBR = [];
 
-export default function TBR(props){
-  
-
+export default function TBRTable (){
   const [booksTBR, setBooksTBR] = useState([]);
 
-  useEffect(() => {
+  function getTbr(){
     fetch(TBR_URL)
     .then(data => data.json())
     .then(data => {
-      // console.log(data);
-      setBooksTBR(data);
-      // console.log(data);
-      // console.log(booksTBR);
+      setBooksTBR(data)
     });
+  }
+
+  useEffect(() => {
+    getTbr();
   }, []);
 
-  return(
+  function handleDelete(id){
+    fetch(`${TBR_URL}/${id}`, {
+      method: 'DELETE'
+    }).then(() => getTbr());
+  }
+
+  function handleMakeChanges(){
+    return(
+      <UpdateTBR />
+    )
+  }
+  
+  return (
     <>
-      {/* add button to add new tbr */}
       <table>
         <thead>
           <tr>
@@ -37,10 +44,10 @@ export default function TBR(props){
         </thead>
         <tbody>
           {booksTBR.map((books, index) => (
-            <tr>
+            <tr key={index}>
               <td>
-                <button>Delete</button>
-                <button>Update</button>
+                <button onClick={() => handleDelete(books.id)}>Delete</button>
+                <button onClick={() => handleMakeChanges()}>Update</button>
               </td>
               <td>{books.title}</td>
               <td>{books.author}</td>
@@ -53,5 +60,3 @@ export default function TBR(props){
     </>
   )
 }
-
-

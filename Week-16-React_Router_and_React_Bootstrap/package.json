@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^5.3.1",
     "react": "^17",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^17",

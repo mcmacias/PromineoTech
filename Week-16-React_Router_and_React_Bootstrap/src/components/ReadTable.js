@@ -1,28 +1,33 @@
-//page that will display read book
-import React from 'react';
+import UpdateRead from '../components/UpdateRead';
 import { useState, useEffect } from "react";
 
 const READ_URL = `https://64c5aeebc853c26efadaea42.mockapi.io/PTF/ReadBooks`;
-// let booksRead = [];
 
-export default function ReadBooks(props){
-
-  const [booksRead, setBooks] = useState(([]));
-
-  useEffect(() => {
+export default function ReadTable(){
+  const [booksRead, setBooks] = useState([]);
+  function getBooks(){
     fetch(READ_URL)
-    .then(data => data.json())
-    .then(data => {
-      setBooks(data);
-      // console.log(data);
-      // console.log(booksRead);
-    });
-  }, []);
+      .then(data => data.json())
+      .then(data => setBooks(data))
+  }
 
-  return(
+  useEffect(() =>{
+    getBooks();
+  }, [])
+
+  function handleDelete(id){
+    fetch(`${READ_URL}/${id}`, {
+      method: 'DELETE'
+    }).then(() => getBooks());
+  }
+
+  function handleMakeChanges(){
+    <UpdateRead />
+  }
+
+  return (
     <>
-      {/* add button to add NewRead */}
-      <table>
+    <table className='table table-striped table-hover'>
         <thead>
           <tr>
             <th></th>
@@ -37,9 +42,8 @@ export default function ReadBooks(props){
           {booksRead.map((book, index) => (
             <tr key={index}>
               <td>
-                <button>Delete</button>
-                {/* connect delete  */}
-                <button>Make Changes</button>
+                <button onClick={() => handleDelete(book.id) }>Delete</button>
+                <button onClick={() => handleMakeChanges() }>Make Changes</button>
               </td>
               <td>{book.title}</td>
               <td>{book.author}</td>
@@ -50,9 +54,6 @@ export default function ReadBooks(props){
           ))}
         </tbody>
       </table>
-    </>
-  );
+      </>
+  )
 }
-
-
-
