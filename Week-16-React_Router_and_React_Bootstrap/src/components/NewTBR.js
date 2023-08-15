@@ -6,10 +6,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
-const TBR_URL = `https://64c5aeebc853c26efadaea42.mockapi.io/PTF/TBRBooks`;
+// const TBR_URL = `https://64c5aeebc853c26efadaea42.mockapi.io/PTF/TBRBooks`;
 
-function NewTBR() {
-  const [booksTBR, setBooksTBR] = useState([]);
+function NewTBR(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -22,40 +21,28 @@ function NewTBR() {
   const [newReason3, setNewReason3] = useState('') 
   const [newSeries, setNewSeries] = useState('')  
 
-  function getTbr(){
-    fetch(TBR_URL)
-    .then(data => data.json())
-    .then(data => {
-      setBooksTBR(data)
-    });
-  }
+  const newTbrData = {
+    title: newTitle,
+    author: newAuthor,
+    reason1: newReason1,
+    reason2: newReason2,
+    reason3: newReason3,
+    series: newSeries,
+  };
+  // console.log(newTbrInfo);
 
-  useEffect(() => {
-    getTbr();
-  }, []);
-
-  function newTBRBook(e){
-    e.preventDefault();
-    fetch(`${TBR_URL}`, {
-      method: 'POST', 
-      headers:{'Content-Type': "application/json"},
-      body: JSON.stringify({
-        title: newTitle,
-        author: newAuthor,
-        reason1: newReason1,
-        reason2: newReason2,
-        reason3: newReason3,
-        series: newSeries,
-      })
-    }).then(() => getTbr()).then(() => handleClose())
+  const handleButtonClick = (e) => {
+    props.newTbr(e, newTbrData);  // Call the first function
+    handleClose(); // Call the second function
   }
-  //getTbr isn't wokring after adding, but handleClose is
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Add to TBR
-      </Button>
+      <div className='new-tbr'>
+        <Button variant="btn btn-newTbr" onClick={handleShow}>
+          Add to TBR
+        </Button>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header>
@@ -93,7 +80,7 @@ function NewTBR() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={(e) => newTBRBook(e)}>
+          <Button variant="primary" onClick={(e) => handleButtonClick(e)}>
             Save Changes
           </Button>
         </Modal.Footer>

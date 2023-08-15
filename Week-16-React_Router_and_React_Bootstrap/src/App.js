@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-
+import './App.css'
 import Home from './routes/Home.js'
 import Read from './routes/Read.js'
 import TBR from './routes/TBR.js'
@@ -7,18 +7,19 @@ import TBR from './routes/TBR.js'
 export default function App() {
 
   return (
+    <div>
     <Router>
       {/* This is your Nav element, that users can see. */}
       <div>
-       <nav> 
-          <ul>
-            <li>
+       <nav className='nav'> 
+          <ul className='list'>
+            <li className='li'>
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className='li'>
               <Link to="/read">Read Books</Link>
             </li>
-            <li>
+            <li className='li'>
               <Link to="/tbr">TBR</Link>
             </li>
           </ul>
@@ -49,5 +50,6 @@ export default function App() {
 
       </div>
     </Router>
+    </div>
   )
 }

@@ -1,4 +1,147 @@
-.home-page{
-  background-color: gray;
+.nav{
+  background-color: darkgray;
+  font-style: oblique;
+  font-weight: 600;
+  font-size: larger;
+  text-align: justify;
 }
 
+.home-page{
+  background-color: rgb(237, 237, 237);
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.tbr-page{
+  background-color: rgba(101, 68, 54, 0.762);
+  padding-bottom: 3rem;
+}
+
+.read-page{
+  background-color: rgb(239, 3, 93);
+  padding-bottom: 3rem;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+a:hover{
+  color: darkslategray;
+}
+
+ul.list{
+  list-style-type: none;
+}
+
+li{
+  display: inline-block;
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+
+img{
+  height: 150px;
+}
+
+.home-intro{
+  background-color: darkgreen;
+  border-width: 5rem;
+  border-radius: 10px;
+  padding: 1rem;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: rgb(228, 228, 199);
+}
+
+.resources, .recs{
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.amazon, .libby, .book-outlet, .goodreads, .youtube{
+  padding-top: 2rem;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.table-tbr, .table-read{
+  width: 80%;
+  align-self: center;
+  outline-offset: 2rem;
+}
+
+.btn-tbr{
+  background-color: rgb(102, 102, 2);
+}
+.btn-read{
+  background-color: rgb(237, 171, 177);
+}
+
+.new-tbr, .new-read{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-newTbr{
+  width: 20%;
+  background-color: rgb(102, 102, 2);
+  margin: 1rem;
+}
+
+.btn-newRead{
+  width: 20%;
+  background-color: rgb(237, 171, 177);
+  margin: 1rem;
+}
+
+tr.tbr-row{
+  border-bottom: 2px solid rgba(101, 68, 54, 0.762);
+}
+
+tr.read-row{
+  border-bottom: 2px solid rgb(239, 3, 93);
+}
+
+.tbr-intro-title{
+  text-align: center;
+  color: rgb(1, 61, 1);
+}
+
+.read-intro-title{
+  text-align: center;
+  color: rgb(144, 0, 50);
+}
+
+.tbr-intro, .read-intro{
+  text-align: center;
+  margin: 2rem;
+}
+.read-intro{
+  color: pink;
+}
+
+.tbr-table-info, .read-table-info{
+  text-align: center;
+}
+
+.read-table-info{
+  color: pink;
+}

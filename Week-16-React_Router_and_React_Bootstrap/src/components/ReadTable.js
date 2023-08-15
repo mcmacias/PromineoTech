@@ -1,35 +1,20 @@
 import UpdateRead from '../components/UpdateRead';
-import { useState, useEffect } from "react";
 
-const READ_URL = `https://64c5aeebc853c26efadaea42.mockapi.io/PTF/ReadBooks`;
+//                                this is destructuring from the 'props'.
+//             other way would be:(       props              ) , then do props.whateverKeyName
+export default function ReadTable({books, handleDelete, handleUpdate}){
 
-export default function ReadTable(){
-  const [booksRead, setBooks] = useState([]);
-  function getBooks(){
-    fetch(READ_URL)
-      .then(data => data.json())
-      .then(data => setBooks(data))
-  }
+  //if you log props {handleDelete: function, handleUpdate: function, books: [{book},{book}]}
 
-  useEffect(() =>{
-    getBooks();
-  }, [])
-
-  function handleDelete(id){
-    fetch(`${READ_URL}/${id}`, {
-      method: 'DELETE'
-    }).then(() => getBooks());
-  }
-
-  function handleMakeChanges(){
-    <UpdateRead />
-  }
+  //add props, adjust to use props and functions through these props
+ // let books = props.books ---- this is one way to make a variable be a value... from props
+  // console.log(books);
 
   return (
     <>
-    <table className='table table-striped table-hover'>
+    <table className='container table table-read'>
         <thead>
-          <tr>
+          <tr className="read-row">
             <th></th>
             <th>Title</th>
             <th>Author</th>
@@ -39,11 +24,11 @@ export default function ReadTable(){
           </tr >
         </thead>
         <tbody>
-          {booksRead.map((book, index) => (
-            <tr key={index}>
+          {books.map((book, index) => (
+            <tr key={index} className="read-row">
               <td>
-                <button onClick={() => handleDelete(book.id) }>Delete</button>
-                <button onClick={() => handleMakeChanges() }>Make Changes</button>
+                <button className="btn btn-read" onClick={() => handleDelete(book.id) }>Delete</button>
+                <UpdateRead book={book} handleUpdate={handleUpdate}/>
               </td>
               <td>{book.title}</td>
               <td>{book.author}</td>

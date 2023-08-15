@@ -1,40 +1,54 @@
+// import amz.jpg from'./images'
+// import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import { Link } from "react-router-dom"
+
+
 
 export default function HomeWelcome() {
   return (
     <div>
-      <div className="intro">
-        <h1>Welcome to Macias Book Tracker TM</h1>
-        <p>Here I can keep track of all the books I've read as well as keeping track of the books
-          I will be keeping in my TBR. 
+      <div className="container home-intro">
+        <h1>Book Tracker 2023</h1>
+        <p>On this platform, I have established a comprehensive system for cataloging the books 
+          I have read, in addition to curating a list of titles that constitute my "To Be Read" (TBR) selection. 
         </p>
       </div>
-      <div>
-        <h1>Here are some links to sites you can get books from</h1>    
-        <div className="amazon">
+      <div className="container resources">
+        <h1>Below are some sites to get books from</h1>    
+        <div className="container amazon">
           <h2>Amazon/Kindle</h2>
-          <p>You can download the Kindle App and get books through Amazon. You can find some free 
-            or $1 books that you can read through the app, although most of them you have to buy. 
-            Here you can get a physical book, eBook, or audio book if they offer it. 
+          <a href="https://www.amazon.com/b/?node=283155&tag=googhydr-20&hvadid=381655816687&hvpos=&hvexid=&hvnetw=g&hvrand=11071536193531943753&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031478&hvtargid=kwd-28771621&ref=pd_sl_15u94xc3ql_e">
+            <img src={require('./images/amazon.jpg')}/>
+          </a>
+          <p>With the Kindle App, you have the opportunity to access an array of literary offerings 
+            available Through Amazon's platform. While some titles can be obtained at no cost or for a small 
+            fee of $1, it's important to note that a majority of the collection require a purchase. Within this 
+            platform, the availability encompasses various formats including physical books, eBooks, and audiobooks, 
+            catering to your preferred mode of consumption, whenever applicable.
           </p>
-          <p>Link to Amazon Books</p>
-          {/* https://www.amazon.com/b/?node=283155&tag=googhydr-20&hvadid=381655816687&hvpos=&hvexid=&hvnetw=g&hvrand=11071536193531943753&hvpone=&hvptwo=&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031478&hvtargid=kwd-28771621&ref=pd_sl_15u94xc3ql_e */}<br/>
         </div>
-        <div className="libby">
+        <div className="container libby">
           <h2>Libby</h2>
-          <p>Through the Libby App you need a Library Card, although due to COVID there are 
-            many public libraries that offer digital library cards that will workon the Libby App. 
-            Here you can only get ebooks or audio books, and only if your library has it in their catalog. 
+          <a href="https://libbyapp.com/interview/welcome#doYouHaveACard">
+            <img src={require('./images/lby.png')}/>
+          </a>
+          <p>Using the Libby App, a Library Card is a required. However, it's worth noting that in response to the 
+            COVID pandemic, numerous public libraries have extended their services to encompass digital library cards, 
+            which seamlessly integrate with the Libby App. This platform exclusively facilitates the acquisition of 
+            eBooks and audiobooks, subject to availability within your library's catalog. 
           </p>
-          <p>Link to Libby App</p>
-          {/* https://libbyapp.com/interview/welcome#doYouHaveACard */}
         </div>
-        <div className="book-outlet">
+        <div className="container book-outlet">
           <h2>Book Oulet</h2>
-          <p>If you are looking to just buying physical books Book Outlet is a grest site to use. They 
-            offer a lot of discounts and have many sales. This site is mainly for physical books. 
+          <a href="https://bookoutlet.com/loyalty/referral/AgR4gfwD?c=url">
+            <img src={require('./images/bo.png')}/>
+          </a>
+          <p>If your focus primarily revolves around purchasing physical books, I recommend considering the 
+            Book Outlet—an exceptional online platform. Along with it's extensive collection, Book Outlet presents 
+            a number of attractive discounts and frequent promotional events. It's pertinent to note that this 
+            platform is mainly for the purchasing of physical books, catering to people seeking to enrich their 
+            personal libraries.
           </p>
-          <p>Link to Book Oulet</p>
-          {/* https://bookoutlet.com/loyalty/referral/AgR4gfwD?c=url */}
         </div>
         </div>
     </div>
