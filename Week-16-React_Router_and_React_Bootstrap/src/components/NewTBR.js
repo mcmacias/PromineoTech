@@ -80,7 +80,7 @@ function NewTBR(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={(e) => handleButtonClick(e)}>
+          <Button variant="btn btn-tbr" onClick={(e) => handleButtonClick(e)}>
             Save Changes
           </Button>
         </Modal.Footer>

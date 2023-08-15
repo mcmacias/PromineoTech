@@ -80,7 +80,7 @@ function NewRead(props) {
           {/* <Button variant="primary" onClick={(e) => props.newReadBook(e, newBookData)}>
             Save Changes
           </Button> */}
-          <Button variant="primary" onClick={(e) => handleButtonClick(e)}>
+          <Button variant="btn btn-read" onClick={(e) => handleButtonClick(e)}>
             Save Changes
           </Button>
         </Modal.Footer>
